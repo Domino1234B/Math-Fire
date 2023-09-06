@@ -22,9 +22,6 @@
         iframe {
             width: 100%;
             height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
             border: none; /* Remove iframe border */
         }
     </style>
@@ -54,7 +51,12 @@
 
                     // Open a new tab with a link that appears as about:blank but shows index.htm
                     const newTab = window.open('about:blank', '_blank');
-                    newTab.document.write('<html><head><title>about:blank</title></head><body><iframe src="index.htm"></iframe></body></html>');
+                    const iframe = document.createElement('iframe');
+                    iframe.src = 'index.htm';
+                    iframe.style.width = '100%';
+                    iframe.style.height = '100%';
+                    iframe.style.border = 'none';
+                    newTab.document.body.appendChild(iframe);
                 }
             }
             
