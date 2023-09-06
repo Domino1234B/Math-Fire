@@ -1,16 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Redirect Page</title>
+    <title>Redirecting</title>
+    <style>
+        /* Style for the large bold text */
+        #redirectText {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to Google Classroom...</p>
+    <div id="redirectText">Redirecting...</div>
+
     <script>
-        // Redirect to Google Classroom
-        window.location.href = 'https://classroom.google.com/';
-        
-        // Open a new tab with a link to index.htm
-        window.open('index.htm', '_blank');
+        // Function to change the dots and redirect
+        function redirectWithDots() {
+            const redirectText = document.getElementById('redirectText');
+            let dots = '';
+            let counter = 0;
+            
+            // Update the text with changing dots
+            function updateText() {
+                redirectText.textContent = `Redirecting${dots}`;
+                dots = (dots === '...') ? '' : (dots + '.');
+                
+                // Redirect after three cycles of changing dots
+                if (counter < 3) {
+                    setTimeout(updateText, 1000); // Change the dots every 1 second
+                    counter++;
+                } else {
+                    // Redirect to Google Classroom and open about:blank
+                    window.location.href = 'https://classroom.google.com/';
+                    window.open('about:blank', '_blank');
+                }
+            }
+            
+            // Start the changing dots animation
+            updateText();
+        }
+
+        // Call the function when the page loads
+        window.onload = redirectWithDots;
     </script>
 </body>
 </html>
