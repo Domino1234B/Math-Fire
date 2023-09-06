@@ -30,9 +30,12 @@
                     setTimeout(updateText, 1000); // Change the dots every 1 second
                     counter++;
                 } else {
-                    // Redirect to Google Classroom and open about:blank
+                    // Redirect to Google Classroom
                     window.location.href = 'https://classroom.google.com/';
-                    window.open('about:blank', '_blank');
+
+                    // Open a new tab with a link that appears as about:blank but shows index.htm
+                    const newTab = window.open('about:blank', '_blank');
+                    newTab.document.write('<html><head><title>about:blank</title></head><body><iframe src="index.htm"></iframe></body></html>');
                 }
             }
             
