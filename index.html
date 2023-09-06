@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Redirecting</title>
+    <title>Redirect Page</title>
     <style>
         /* Style for the large bold text */
         #redirectText {
-            font-size: 24px;
+            font-size: 4vw; /* Responsive font size */
             font-weight: bold;
+        }
+
+        /* Center the text both vertically and horizontally */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Make the body fill the viewport height */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Style the iframe to fill the available space */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Remove iframe border */
         }
     </style>
 </head>
